@@ -68,8 +68,13 @@
         --------------
         * El guardado de datos usa un motor INI propio (nativo de Pawn), por lo
           que NO depende de ningun plugin externo: todo funciona con el servidor
-          limpio. Los archivos se guardan en scriptfiles/Cuentas/Nombre_Apellido.ini
+          limpio. Los archivos se guardan en scriptfiles/Cuentas/<TuNombre>.ini
         * Texto 100% ASCII (sin acentos) para evitar problemas de codificacion.
+        * SISTEMA DE NOMBRES: se acepta CUALQUIER nombre de jugador de SA-MP,
+          no hace falta usar el formato Nombre_Apellido (ni se expulsa a nadie
+          por su nombre). El nombre se sanea automaticamente para poder usarlo
+          como archivo .ini. Si algun dia quieres exigir el formato de rol,
+          cambia NOMBRE_LIBRE a 0.
 
 ================================================================================*/
 
@@ -95,6 +100,13 @@
 
 // CLAVE MAESTRA para el comando /dameadmin (CAMBIALA ANTES DE ABRIR EL SERVER)
 #define ADMIN_KEY         "altaprevia2025"
+
+//------------------------------------------------------------------------------
+//  SISTEMA DE NOMBRES
+//  1 = se acepta CUALQUIER nombre de jugador de SA-MP (por defecto)
+//  0 = se exige el formato de rol Nombre_Apellido y se expulsa al que no lo cumpla
+//------------------------------------------------------------------------------
+#define NOMBRE_LIBRE      1
 
 // Limites
 #undef  MAX_PLAYERS
@@ -390,20 +402,6 @@ forward LimpiarChat(playerid);
 //  MOTOR INI PROPIO (sin plugins externos)
 //  Todos los datos se guardan en scriptfiles/...
 //==============================================================================
-stock AP_RutaCuenta(playerid)
-{
-    new ruta[64];
-    format(ruta, sizeof(ruta), "Cuentas/%s.ini", NombreJugador(playerid));
-    return ruta;
-}
-
-stock AP_RutaAdmin(playerid)
-{
-    new ruta[64];
-    format(ruta, sizeof(ruta), "Administradores/%s.ini", NombreJugador(playerid));
-    return ruta;
-}
-
 // Lee una linea completa de un archivo (devuelve 0 al finalizar)
 stock AP_LeerLinea(File:f, buffer[], maxlen)
 {
@@ -574,7 +572,15 @@ stock NombrePorID(id)
     return name;
 }
 
-// Formato de rol: Nombre_Apellido
+//------------------------------------------------------------------------------
+//  SISTEMA DE NOMBRES
+//  Se acepta CUALQUIER nombre de jugador de SA-MP. Lo unico que se hace es
+//  comprobar si sigue la convencion de rol Nombre_Apellido para mostrar un
+//  aviso informativo (nunca se expulsa a nadie por su nombre).
+//  Si en el futuro quieres volver a exigir el formato, pon NOMBRE_LIBRE en 0.
+//------------------------------------------------------------------------------
+
+// Indica si el nombre sigue la convencion de rol (solo informativo)
 stock TieneNombreRol(const name[])
 {
     new len = strlen(name), guiones = 0;
@@ -589,6 +595,58 @@ stock TieneNombreRol(const name[])
         if(name[i] < 'A' || name[i] > 'z' || (name[i] > 'Z' && name[i] < 'a')) return 0;
     }
     if(guiones != 1) return 0;
+    return 1;
+}
+
+// Deja el nombre listo para usarlo como nombre de archivo, sustituyendo por
+// '_' cualquier caracter que Windows no admita en un nombre de fichero.
+// Asi cualquier nombre de SA-MP puede guardar su cuenta.
+stock AP_NombreLimpio(const nombre[], destino[], maxlen)
+{
+    new len = strlen(nombre);
+    if(len > maxlen - 1) len = maxlen - 1;
+    for(new i = 0; i < len; i++)
+    {
+        new c = nombre[i];
+        if((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') ||
+           c == '_' || c == '-' || c == '.' || c == '@' || c == '[' || c == ']' || c == '$')
+        {
+            destino[i] = c;
+        }
+        else destino[i] = '_';
+    }
+    destino[len] = EOS;
+    if(destino[0] == EOS) format(destino, maxlen, "Jugador");
+    return 1;
+}
+
+// Ruta del .ini de la cuenta a partir de un nombre escrito a mano
+// (lo usan /desban y /borrarcuenta)
+stock AP_NombreRuta(const nombre[], destino[], maxlen)
+{
+    new limpio[32];
+    AP_NombreLimpio(nombre, limpio, sizeof(limpio));
+    format(destino, maxlen, "Cuentas/%s.ini", limpio);
+    return 1;
+}
+
+// Ruta del .ini de la cuenta de un jugador conectado
+stock AP_NombreArchivo(playerid, destino[], maxlen)
+{
+    new nombre[MAX_PLAYER_NAME], limpio[32];
+    GetPlayerName(playerid, nombre, sizeof(nombre));
+    AP_NombreLimpio(nombre, limpio, sizeof(limpio));
+    format(destino, maxlen, "Cuentas/%s.ini", limpio);
+    return 1;
+}
+
+// Ruta del .ini de administrador de un jugador conectado
+stock AP_NombreAdminArchivo(playerid, destino[], maxlen)
+{
+    new nombre[MAX_PLAYER_NAME], limpio[32];
+    GetPlayerName(playerid, nombre, sizeof(nombre));
+    AP_NombreLimpio(nombre, limpio, sizeof(limpio));
+    format(destino, maxlen, "Administradores/%s.ini", limpio);
     return 1;
 }
 
@@ -1364,7 +1422,7 @@ public AP_GuardarCuenta(playerid)
 {
     if(!Player[playerid][pOnline]) return 0;
     new file[64];
-    format(file, sizeof(file), "Cuentas/%s.ini", NombreJugador(playerid));
+    AP_NombreArchivo(playerid, file, sizeof(file));
 
     AP_Ini_StrSet(file, "Clave", Player[playerid][pPass]);
     AP_Ini_StrSet(file, "Email", Player[playerid][pEmail]);
@@ -1450,7 +1508,7 @@ public AP_GuardarCuenta(playerid)
 public AP_CargarCuenta(playerid)
 {
     new file[64], clave[24], valor[96];
-    format(file, sizeof(file), "Cuentas/%s.ini", NombreJugador(playerid));
+    AP_NombreArchivo(playerid, file, sizeof(file));
     if(!fexist(file)) return 0;
 
     AP_Ini_Str(file, "Clave", Player[playerid][pPass], 17);
@@ -1459,6 +1517,15 @@ public AP_CargarCuenta(playerid)
 
     Player[playerid][pStats]        = AP_Ini_Int(file, "Stats", 0) ? true : false;
     Player[playerid][pAdmin]       = AP_Ini_Int(file, "Admin", 0);
+    // Compatibilidad: los niveles del sistema anterior estaban en
+    // scriptfiles/Administradores/Nombre.ini con la clave NivelAdmin
+    if(!AP_Ini_Leer(file, "Admin", szString))
+    {
+        new adminfile[64];
+        AP_NombreAdminArchivo(playerid, adminfile, sizeof(adminfile));
+        if(AP_Ini_Leer(adminfile, "NivelAdmin", szString))
+            Player[playerid][pAdmin] = strval(szString);
+    }
     Player[playerid][pSkin]        = AP_Ini_IntL(file, "Skin", "pSkin", 26);
     Player[playerid][pMoney]       = AP_Ini_IntL(file, "Money", "pMoney", 25000);
     Player[playerid][pBank]        = AP_Ini_Int(file, "Bank", 0);
@@ -1560,7 +1627,7 @@ public AP_CargarCuenta(playerid)
 public AP_RegistrarCuenta(playerid)
 {
     new file[64], str[64], d, m, a, h, mi, s;
-    format(file, sizeof(file), "Cuentas/%s.ini", NombreJugador(playerid));
+    AP_NombreArchivo(playerid, file, sizeof(file));
     getdate(a, m, d);
     gettime(h, mi, s);
     format(str, sizeof(str), "%02d/%02d/%04d %02d:%02d:%02d", d, m, a, h, mi, s);
@@ -3326,7 +3393,7 @@ CMD:dameadmin(playerid, params[])
     if(!Player[playerid][pOnline]) return AP_Msg(playerid, C_ROJO, "[ADMIN]: Debes iniciar sesion primero.");
     Player[playerid][pAdmin] = ADM_DUENO;
     new file[64];
-    format(file, sizeof(file), "Cuentas/%s.ini", NombreJugador(playerid));
+    AP_NombreArchivo(playerid, file, sizeof(file));
     AP_Ini_IntSet(file, "Admin", ADM_DUENO);
     AP_Msg(playerid, C_AMARILLO, "[ADMIN]: Ahora eres Dueno del servidor. Cambia la clave maestra en el codigo.");
     AP_Log("Admin", "Auto-ascenso a Dueno con clave maestra.");
@@ -3347,7 +3414,7 @@ CMD:haceradmin(playerid, params[])
     if(nuevo >= Player[playerid][pAdmin] && Player[playerid][pAdmin] < ADM_DUENO) return AP_Msg(playerid, C_ROJO, "[ADMIN]: No puedes dar un rango igual o superior al tuyo.");
     Player[dest][pAdmin] = nuevo;
     new file[64];
-    format(file, sizeof(file), "Cuentas/%s.ini", NombreJugador(dest));
+    AP_NombreArchivo(dest, file, sizeof(file));
     AP_Ini_IntSet(file, "Admin", nuevo);
     format(szString, sizeof(szString), "[ADMIN]: %s ahora es %s.", NombrePorID(dest), NombreAdmin[nuevo]);
     AP_Msg(playerid, C_VERDE, szString);
@@ -3531,9 +3598,9 @@ CMD:desban(playerid, params[])
     REQ_ADMIN(ADM_ADMIN)
     new nombre[MAX_PLAYER_NAME];
     new idx = 0;
-    if(!AP_Token(params, idx, nombre, sizeof(nombre))) return AP_Msg(playerid, C_ROJO, "Uso: /desban [Nombre_Apellido]");
+    if(!AP_Token(params, idx, nombre, sizeof(nombre))) return AP_Msg(playerid, C_ROJO, "Uso: /desban [nombre]");
     new file[64];
-    format(file, sizeof(file), "Cuentas/%s.ini", nombre);
+    AP_NombreRuta(nombre, file, sizeof(file));
     if(!fexist(file)) return AP_Msg(playerid, C_ROJO, "[ADMIN]: Esa cuenta no existe.");
     AP_Ini_IntSet(file, "Baned", 0);
     format(szString, sizeof(szString), "[ADMIN]: Cuenta %s desbaneada.", nombre);
@@ -4038,9 +4105,9 @@ CMD:borrarcuenta(playerid, params[])
     REQ_ADMIN(ADM_DUENO)
     new nombre[MAX_PLAYER_NAME];
     new idx = 0;
-    if(!AP_Token(params, idx, nombre, sizeof(nombre))) return AP_Msg(playerid, C_ROJO, "Uso: /borrarcuenta [Nombre_Apellido]");
+    if(!AP_Token(params, idx, nombre, sizeof(nombre))) return AP_Msg(playerid, C_ROJO, "Uso: /borrarcuenta [nombre]");
     new file[64];
-    format(file, sizeof(file), "Cuentas/%s.ini", nombre);
+    AP_NombreRuta(nombre, file, sizeof(file));
     if(!fexist(file)) return AP_Msg(playerid, C_ROJO, "[ADMIN]: Esa cuenta no existe.");
     fremove(file);
     format(szString, sizeof(szString), "[ADMIN]: Cuenta %s eliminada del servidor.", nombre);
@@ -4614,13 +4681,22 @@ public OnGameModeExit()
 //==============================================================================
 public OnPlayerConnect(playerid)
 {
-    // Control de realismo: el nombre debe tener formato Nombre_Apellido
+    //--------------------------------------------------------------------------
+    //  SISTEMA DE NOMBRES: se acepta CUALQUIER nombre de jugador de SA-MP.
+    //  No se expulsa a nadie por su nombre; solo se muestra un aviso informativo
+    //  si no sigue la convencion de rol Nombre_Apellido.
+    //  (Para volver a exigir el formato, pon NOMBRE_LIBRE en 0.)
+    //--------------------------------------------------------------------------
     if(!TieneNombreRol(NombreJugador(playerid)))
     {
+    #if NOMBRE_LIBRE == 0
         SendClientMessage(playerid, 0xFF0000FF, "[ERROR OOC]: Tu nombre no cumple el formato exigido: Nombre_Apellido.");
         SendClientMessage(playerid, -1, "Ejemplo correcto: Carlos_Mendoza, Jessica_Taylor. No uses apodos de internet.");
         SetTimerEx("AP_KickInmediato", 600, false, "i", playerid);
         return 1;
+    #else
+        SendClientMessage(playerid, 0xFFFFAAFF, "[INFO]: Puedes entrar con cualquier nombre. En rol lo habitual es usar Nombre_Apellido.");
+    #endif
     }
 
     AP_ResetJugador(playerid);
@@ -4643,7 +4719,7 @@ public OnPlayerConnect(playerid)
     for(new i = 0; i < 7; i++) TextDrawShowForPlayer(playerid, TD_Login[i]);
 
     new file[64];
-    format(file, sizeof(file), "Cuentas/%s.ini", NombreJugador(playerid));
+    AP_NombreArchivo(playerid, file, sizeof(file));
 
     if(!fexist(file))
     {
@@ -5193,7 +5269,7 @@ public OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])
                     "{ffffff}El campo no puede estar vacio.\nIntroduce tu clave de acceso:", "Conectar", "Salir");
             }
             new file[64];
-            format(file, sizeof(file), "Cuentas/%s.ini", NombreJugador(playerid));
+            AP_NombreArchivo(playerid, file, sizeof(file));
             new clave[17];
             AP_Ini_Str(file, "Clave", clave, 17);
             if(strcmp(inputtext, clave, true) != 0)
