@@ -1,0 +1,446 @@
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[16:41:38] filterscripts = ""  (string)
+[16:41:38] 
+[16:41:38] Server Plugins
+[16:41:38] --------------
+[16:41:38]  Loading plugin: streamer.dll
+[16:41:38] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[16:41:38]   Loaded.
+[16:41:38]  Loaded 1 plugins.
+
+[16:41:38] 
+[16:41:38] Filterscripts
+[16:41:38] ---------------
+[16:41:38]   Loaded 0 filterscripts.
+
+[16:41:38] --- > Proxy Roleplay < --- 
+[16:41:38] Number of vehicle models: 0
+[16:42:11] [connection] incoming connection: 26.253.228.153:63279 id: 0
+[16:42:11] [join] Dani_Mcfly has joined the server (0:26.253.228.153)
+[16:42:20] [part] Dani_Mcfly has left the server (0:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[22:58:28] filterscripts = ""  (string)
+[22:58:28] 
+[22:58:28] Server Plugins
+[22:58:28] --------------
+[22:58:28]  Loading plugin: streamer.dll
+[22:58:29] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[22:58:29]   Loaded.
+[22:58:29]  Loaded 1 plugins.
+
+[22:58:29] 
+[22:58:29] Filterscripts
+[22:58:29] ---------------
+[22:58:29]   Loaded 0 filterscripts.
+
+[22:58:29] --- > Proxy Roleplay < --- 
+[22:58:29] Number of vehicle models: 0
+[22:59:28] [connection] incoming connection: 127.0.0.1:50697 id: 0
+[22:59:28] [join] Nicho_Lopez has joined the server (0:127.0.0.1)
+[23:18:15] [part] Nicho_Lopez has left the server (0:1)
+[23:18:25] --- Server Shutting Down.
+[23:18:25] 
+
+*** Streamer Plugin v2.9.6 by Incognito unloaded ***
+
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[00:08:18] filterscripts = ""  (string)
+[00:08:18] 
+[00:08:18] Server Plugins
+[00:08:18] --------------
+[00:08:18]  Loading plugin: streamer.dll
+[00:08:18] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[00:08:18]   Loaded.
+[00:08:18]  Loaded 1 plugins.
+
+[00:08:18] 
+[00:08:18] Filterscripts
+[00:08:18] ---------------
+[00:08:18]   Loaded 0 filterscripts.
+
+[00:08:18] --- > Proxy Roleplay < --- 
+[00:08:18] Number of vehicle models: 0
+[00:08:58] [connection] incoming connection: 127.0.0.1:61910 id: 0
+[00:08:58] [join] Nicho_Lopez has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[00:14:16] filterscripts = ""  (string)
+[00:14:16] 
+[00:14:16] Server Plugins
+[00:14:16] --------------
+[00:14:16]  Loading plugin: streamer.dll
+[00:14:16] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[00:14:16]   Loaded.
+[00:14:16]  Loaded 1 plugins.
+
+[00:14:16] 
+[00:14:16] Filterscripts
+[00:14:16] ---------------
+[00:14:16]   Loaded 0 filterscripts.
+
+[00:14:16] --- > Proxy Roleplay < --- 
+[00:14:16] Number of vehicle models: 0
+[00:14:31] [connection] incoming connection: 127.0.0.1:55172 id: 0
+[00:14:32] [join] Nicho_Lopez has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[00:19:28] 
+[00:19:28] Server Plugins
+[00:19:28] --------------
+[00:19:28]  Loading plugin: streamer.dll
+[00:19:28] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[00:19:28]   Loaded.
+[00:19:28]  Loaded 1 plugins.
+
+[00:19:28] 
+[00:19:28] Filterscripts
+[00:19:28] ---------------
+[00:19:28]   Loading filterscript 'admin.amx'...
+[00:19:28] 
+------------------------------------------------
+[00:19:28]   >> Sistema de Admin por Rangos Cargado <<     
+[00:19:28]   >> Compatible con Proxy RP - Guardado DOF2 <<
+[00:19:28] ------------------------------------------------
+
+[00:19:28]   Loaded 1 filterscripts.
+
+[00:19:28] --- > Proxy Roleplay < --- 
+[00:19:28] Number of vehicle models: 0
+[00:19:51] [connection] incoming connection: 127.0.0.1:63599 id: 0
+[00:19:51] [join] Brian_Lopez has joined the server (0:127.0.0.1)
+[00:22:32] RCON (In-Game): Player #0 (Brian_Lopez) has logged in.
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[00:28:22] 
+[00:28:22] Server Plugins
+[00:28:22] --------------
+[00:28:22]  Loading plugin: streamer.dll
+[00:28:22] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[00:28:22]   Loaded.
+[00:28:22]  Loaded 1 plugins.
+
+[00:28:23] 
+[00:28:23] Filterscripts
+[00:28:23] ---------------
+[00:28:23]   Loading filterscript 'admin.amx'...
+[00:28:23] 
+------------------------------------------------
+[00:28:23]   >> Sistema de Admin por Rangos Cargado <<     
+[00:28:23]   >> Compatible con Proxy RP - Guardado DOF2 <<
+[00:28:23] ------------------------------------------------
+
+[00:28:23]   Loading filterscript 'cmds.amx'...
+[00:28:23] 
+------------------------------------------------
+[00:28:23]   >> FS Comandos Comunitarios Cargado <<        
+[00:28:23]   >> (/duda, /reportar, /twitter, /b, /an) <<   
+[00:28:23] ------------------------------------------------
+
+[00:28:23]   Loaded 2 filterscripts.
+
+[00:28:23] --- > Proxy Roleplay < --- 
+[00:28:23] Number of vehicle models: 0
+[00:28:46] [connection] incoming connection: 127.0.0.1:60434 id: 0
+[00:28:46] [join] Brian_Lopez has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[00:34:41] 
+[00:34:41] Server Plugins
+[00:34:41] --------------
+[00:34:41]  Loading plugin: streamer.dll
+[00:34:41] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[00:34:41]   Loaded.
+[00:34:41]  Loaded 1 plugins.
+
+[00:34:41] 
+[00:34:41] Filterscripts
+[00:34:41] ---------------
+[00:34:41]   Loading filterscript 'admin.amx'...
+[00:34:41] 
+------------------------------------------------
+[00:34:41]   >> Sistema de Admin por Rangos Cargado <<     
+[00:34:41]   >> Compatible con Proxy RP - Guardado DOF2 <<
+[00:34:41] ------------------------------------------------
+
+[00:34:41]   Loading filterscript 'cmds.amx'...
+[00:34:41] 
+------------------------------------------------
+[00:34:41]   >> FS Comandos Comunitarios Cargado <<        
+[00:34:41]   >> (/duda, /reportar, /twitter, /b, /an) <<   
+[00:34:41] ------------------------------------------------
+
+[00:34:41]   Loading filterscript 'vip.amx'...
+[00:34:41] 
+------------------------------------------------
+[00:34:41]   >> Sistema de VIP & Coins Cargado <<          
+[00:34:41]   >> Guardado independiente en scriptfiles/VIP/<<
+[00:34:41] ------------------------------------------------
+
+[00:34:41]   Loaded 3 filterscripts.
+
+[00:34:41] --- > Proxy Roleplay < --- 
+[00:34:41] Number of vehicle models: 0
+[00:35:04] [connection] incoming connection: 127.0.0.1:62234 id: 0
+[00:35:04] [join] Brian_Lopez has joined the server (0:127.0.0.1)
+[00:36:43] RCON (In-Game): Player #0 (Brian_Lopez) failed login.
+[00:36:55] RCON (In-Game): Player #0 (Brian_Lopez) has logged in.
+[00:41:59] [part] Brian_Lopez has left the server (0:1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[00:42:03] 
+[00:42:03] Server Plugins
+[00:42:03] --------------
+[00:42:03]  Loading plugin: streamer.dll
+[00:42:03] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[00:42:03]   Loaded.
+[00:42:03]  Loaded 1 plugins.
+
+[00:42:03] 
+[00:42:03] Filterscripts
+[00:42:03] ---------------
+[00:42:03]   Loading filterscript 'admin.amx'...
+[00:42:03] 
+------------------------------------------------
+[00:42:03]   >> Sistema de Admin por Rangos Cargado <<     
+[00:42:03]   >> Compatible con Proxy RP - Guardado DOF2 <<
+[00:42:03] ------------------------------------------------
+
+[00:42:03]   Loading filterscript 'cmds.amx'...
+[00:42:03] 
+------------------------------------------------
+[00:42:03]   >> FS Comandos Comunitarios Cargado <<        
+[00:42:03]   >> (/duda, /reportar, /twitter, /b, /an) <<   
+[00:42:03] ------------------------------------------------
+
+[00:42:03]   Loading filterscript 'vip.amx'...
+[00:42:03] 
+------------------------------------------------
+[00:42:03]   >> Sistema de VIP & Coins Cargado <<          
+[00:42:03]   >> Guardado independiente en scriptfiles/VIP/<<
+[00:42:03] ------------------------------------------------
+
+[00:42:03]   Loading filterscript 'jobs.amx'...
+[00:42:03] 
+------------------------------------------------
+[00:42:03]   >> Sistema de Trabajos Secundarios Cargado << 
+[00:42:03]   >> Pizzero, Basurero y Camionero Activos  << 
+[00:42:03] ------------------------------------------------
+
+[00:42:03]   Loaded 4 filterscripts.
+
+[00:42:03] --- > Proxy Roleplay < --- 
+[00:42:03] Number of vehicle models: 0
+[00:42:27] [connection] incoming connection: 127.0.0.1:51255 id: 0
+[00:42:27] [join] Brian_Lopez has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[00:51:44] 
+[00:51:44] Server Plugins
+[00:51:44] --------------
+[00:51:44]  Loading plugin: streamer.dll
+[00:51:44] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[00:51:44]   Loaded.
+[00:51:44]  Loaded 1 plugins.
+
+[00:51:44] 
+[00:51:44] Filterscripts
+[00:51:44] ---------------
+[00:51:44]   Loading filterscript 'admin.amx'...
+[00:51:44] 
+------------------------------------------------
+[00:51:44]   >> Sistema de Admin por Rangos Cargado <<     
+[00:51:44]   >> Compatible con Proxy RP - Guardado DOF2 <<
+[00:51:44] ------------------------------------------------
+
+[00:51:44]   Loading filterscript 'cmds.amx'...
+[00:51:44] 
+------------------------------------------------
+[00:51:44]   >> FS Comandos Comunitarios Cargado <<        
+[00:51:44]   >> (/duda, /reportar, /twitter, /b, /an) <<   
+[00:51:44] ------------------------------------------------
+
+[00:51:44]   Loading filterscript 'vip.amx'...
+[00:51:44] 
+------------------------------------------------
+[00:51:44]   >> Sistema de VIP & Coins Cargado <<          
+[00:51:44]   >> Guardado independiente en scriptfiles/VIP/<<
+[00:51:44] ------------------------------------------------
+
+[00:51:44]   Loading filterscript 'jobs.amx'...
+[00:51:44] 
+------------------------------------------------
+[00:51:44]   >> Sistema de Trabajos Secundarios Cargado << 
+[00:51:44]   >> Pizzero, Basurero y Camionero Activos  << 
+[00:51:44] ------------------------------------------------
+
+[00:51:44]   Loading filterscript 'velocimetro.amx'...
+[00:51:44] 
+------------------------------------------------
+[00:51:44]   >> FS Velocímetro Realista TD Cargado <<     
+[00:51:44]   >> Cálculo de velocidad vectorial 3D Activo <<
+[00:51:44] ------------------------------------------------
+
+[00:51:44]   Loaded 5 filterscripts.
+
+[00:51:44] --- > Proxy Roleplay < --- 
+[00:51:44] Number of vehicle models: 0
+[00:51:50] [connection] incoming connection: 127.0.0.1:62380 id: 0
+[00:51:50] [join] Brian_Lopez has joined the server (0:127.0.0.1)
+
+----------
+Loaded log file: "server_log.txt".
+----------
+
+SA-MP Dedicated Server
+----------------------
+v0.3.7-R2, (C)2005-2015 SA-MP Team
+
+[00:56:45] 
+[00:56:45] Server Plugins
+[00:56:45] --------------
+[00:56:45]  Loading plugin: streamer.dll
+[00:56:45] 
+
+*** Streamer Plugin v2.9.6 by Incognito loaded ***
+
+[00:56:45]   Loaded.
+[00:56:45]  Loaded 1 plugins.
+
+[00:56:45] 
+[00:56:45] Filterscripts
+[00:56:45] ---------------
+[00:56:45]   Loading filterscript 'admin.amx'...
+[00:56:45] 
+------------------------------------------------
+[00:56:45]   >> Sistema de Admin por Rangos Cargado <<     
+[00:56:45]   >> Compatible con Proxy RP - Guardado DOF2 <<
+[00:56:45] ------------------------------------------------
+
+[00:56:46]   Loading filterscript 'cmds.amx'...
+[00:56:46] 
+------------------------------------------------
+[00:56:46]   >> FS Comandos Comunitarios Cargado <<        
+[00:56:46]   >> (/duda, /reportar, /twitter, /b, /an) <<   
+[00:56:46] ------------------------------------------------
+
+[00:56:46]   Loading filterscript 'vip.amx'...
+[00:56:46] 
+------------------------------------------------
+[00:56:46]   >> Sistema de VIP & Coins Cargado <<          
+[00:56:46]   >> Guardado independiente en scriptfiles/VIP/<<
+[00:56:46] ------------------------------------------------
+
+[00:56:46]   Loading filterscript 'jobs.amx'...
+[00:56:46] 
+------------------------------------------------
+[00:56:46]   >> Sistema de Trabajos Secundarios Cargado << 
+[00:56:46]   >> Pizzero, Basurero y Camionero Activos  << 
+[00:56:46] ------------------------------------------------
+
+[00:56:46]   Loading filterscript 'velocimetro.amx'...
+[00:56:46] 
+------------------------------------------------
+[00:56:46]   >> FS Velocímetro Realista TD Cargado <<     
+[00:56:46]   >> Cálculo de velocidad vectorial 3D Activo <<
+[00:56:46] ------------------------------------------------
+
+[00:56:46]   Loaded 5 filterscripts.
+
+[00:56:46] --- > Proxy Roleplay < --- 
+[00:56:46] Number of vehicle models: 0
+[00:57:16] [connection] incoming connection: 127.0.0.1:51490 id: 0
+[00:57:16] [join] Brian_Lopez has joined the server (0:127.0.0.1)
+[01:02:42] [part] Brian_Lopez has left the server (0:1)
